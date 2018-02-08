@@ -1,0 +1,51 @@
+// @stylint off
+
+aspect-ratio(w,h)
+ 	(h/w) * 100%
+//path images
+path(img)
+	background-image url("../images/"+img)
+
+transitionBase(el = all ,tiempo = 0.3s, curve = ease-in-out)
+	transition el tiempo curve
+
+
+cuadrado()
+	height arguments
+	width arguments
+
+circ()
+	border-radius 100%
+	cuadrado arguments
+	
+background-blend-mode(arguments)
+	background-blend-mode arguments
+	-webkit-background-blend-mode arguments
+	-moz-background-blend-mode arguments
+	-o-background-blend-mode arguments
+	
+
+mix-blend-mode(arguments)
+	mix-blend-mode arguments
+	-webkit-mix-blend-mode arguments
+	-moz-mix-blend-mode arguments
+	-o-mix-blend-mode arguments
+	
+
+object-fit(arguments)
+	object-fit arguments
+	-webkit-object-fit arguments
+	-moz-object-fit arguments
+	-o-object-fit arguments
+
+//Soporte de propiedad calc en todos los navegadores modernos
+calc()
+	arguments = unquote(arguments)
+	vendor-prefixes = o ms webkit moz
+
+	for pre in vendor-prefixes
+		add-property(current-property[0], s('-%s-calc(%s)', pre, arguments) )
+
+	s('calc(%s)', arguments)
+	
+// @stylint on

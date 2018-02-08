@@ -1,0 +1,40 @@
+//se pueden declarar con funciones
+// make-prefix-column(num)
+// make-prefix-column-offset(num)
+// @stylint off
+
+
+.intro
+	make-sm-column(7)
+
+.form
+	&-half
+		make-sm-column(6)
+		transitionBase()
+
+
+.push
+	&-half
+		make-sm-column-offset(6)
+
+// @stylint on
+
+@media (min-width:$screen-sm)
+	.col
+		&-propuestas
+			margin-top -15rem
+		
+		&-social
+			clear both
+			margin-left 25%
+			margin-top 1rem
+			
+
+@media (min-width:1100px)
+	.col
+		&-propuestas
+			margin-top -12rem
+		&-social
+			clear none
+			margin-left 0
+			margin-top 0

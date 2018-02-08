@@ -1,0 +1,38 @@
+.btn
+	background-color $gris
+	border none
+	border-radius 5px
+	color white
+	font-weight $light
+	padding 1rem 2rem
+	text-transform uppercase
+	transitionBase()
+	
+	
+
+
+	&-img
+		img-responsive(block)
+		margin 1rem auto
+		width 46.9rem
+		
+		
+	&-magenta
+		background-color $magenta
+		
+		&:hover
+			background-color $azul
+	
+
+	&-submit
+		display block
+		font-size 2rem
+		margin 1rem auto
+		max-width 14rem
+		
+@media (min-width:$screen-sm)
+	.btn
+				
+		&-submit
+			// float left
+			margin 3.4rem auto

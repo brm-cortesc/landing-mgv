@@ -1,0 +1,138 @@
+header
+	color white
+	margin-bottom 6rem
+	position relative
+	z-index 2
+	
+	.diagonal
+		background-color $azul
+		height 29rem
+		overflow hidden
+		pointer-events none
+		position absolute
+		top 6rem
+		transform skewY(-9deg)
+		transitionBase()
+		width 100%
+		z-index -1
+		
+		img
+			bottom -3rem
+			img-responsive(block)
+			left 50%
+			position absolute
+			transform skewY(9deg) translateX(-50%)
+			transitionBase()
+			width 15rem
+
+	.intro
+		font-weight $light
+		line-height 1.2
+		margin 3rem auto 1rem
+		text-align center
+		
+
+		img
+			img-responsive(block)
+			margin 0 auto
+			width 20rem
+
+.logo
+	margin 1rem auto
+	width 10rem
+	
+	h2
+		margin 0
+		padding 0
+	
+	img
+		box-shadow 5px 5px 5px 0px rgba(0, 0, 0,0.5)
+		img-responsive(block)
+		width 100%
+		
+
+@media (min-width:410px)
+	header
+		margin-bottom 9rem
+		
+
+@media (min-width:540px)
+	header
+		margin-bottom 14rem
+		
+		.diagonal
+			height 40rem
+			img
+				bottom -3.6rem
+				width: 24rem
+				
+		.intro
+			p
+				font-size 1.8rem
+				margin 1rem auto
+				max-width 35rem
+				
+
+@media (min-width:$screen-sm)
+	header
+		margin-bottom 2rem
+		
+		.diagonal
+			height 30rem
+			top 9rem
+			
+			img
+				left auto
+				right 0
+				transform skewY(9deg)
+				width 44rem
+				
+		.intro
+			text-align left
+			
+			p
+				max-width none
+			
+			img
+				width 25rem
+		
+	
+	.logo
+		width 13rem 
+		
+@media (min-width:960px)
+	header
+		margin-bottom 5rem
+		
+@media (min-width:1100px)
+	header
+		.diagonal
+			transform skewY(-4deg)
+			
+			img
+				transform skewY(4deg)
+				width 54rem
+	.logo
+		margin 2rem auto
+		
+
+@media (min-width:1460px)
+	header
+		.diagonal
+			
+			img
+				right 5%
+				
+@media (min-width:1600px)
+	header
+		.diagonal
+			
+			img
+				right 15%
+				
+@media (min-width:1800px)
+	header
+		.diagonal
+			
+			img
+				right 20%

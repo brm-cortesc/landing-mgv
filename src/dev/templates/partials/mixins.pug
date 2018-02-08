@@ -1,0 +1,21 @@
+mixin image(src, name)
+	img(src="assets/images/"+src, title=name, alt=name)&attributes(attributes)
+
+//-Implementation
+	+image('filename', 'alt/title text')(other attributes)
+
+mixin modal(id)
+	//Modal	
+	div(class="modal-custom modal-"+id)
+			//Close button
+			button.btn.btn-close.close(type="button", (click)="d('Close cross')")
+				i.icon.icon-close
+			///-Close button
+
+			//Content
+			div.modal-content
+				block
+			///-Content
+	//- div.modal.fade(id=id, tabindex="-1", role="dialog")
+	
+	///-Modal
