@@ -5,6 +5,7 @@
 /tmp
 /out-tsc
 /src/app
+/src/assets/maps
 # dependencies
 /node_modules
 

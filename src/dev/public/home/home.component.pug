@@ -27,7 +27,8 @@ header.container-fluid
 section.container-fluid
 	div.row
 		h1.text-center.text-copy.
-			Inscríbete para recibir el <strong>Kit de Bienvenida</strong> y tomar acción
+			<span>Inscríbete ya </span>
+			para recibir el <strong>Kit de Bienvenida</strong> y tomar acción.
 		
 		p.text-center: small Los campos con (*) son obligatorios
 
@@ -138,6 +139,18 @@ section.container-fluid
 
 				///-Twitter
 
+				//condiciones
+				div.form-group.form-checkbox
+					div.checkbox
+						input(type="checkbox", name="condicionesH", id="condicionesH", required, [(ngModel)]="jovenesForm.condiciones",#condiciones="ngModel")
+						label(for="condicionesH") Con el envío de este formulario acepto las condiciones de inscripción. 
+
+						div.msn-place(*ngIf='condiciones.errors && (condiciones.dirty || condiciones.touched || formSubmitAttempt)')
+							div([hidden]="!politicas.hasError('required')") Este campo es requerido
+
+
+				///-condiciones
+
 				//Acepto terminos
 				div.form-group.form-checkbox
 					div.checkbox
@@ -178,7 +191,7 @@ section.container-fluid
 						|  Adjuntar Archivo
 					input(type="file", id="archivo", name="archivo", pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+", [(ngModel)]="jovenesForm.twitter", #twitter="ngModel")
 					
-					small Se aceptan archivos pdf y doc, con un peso máximo de 2 mb
+					small Se aceptan archivos pdf y doc, con un peso máximo de 2 mb (opcional)
 
 				///-adjuntar
 				//Submit

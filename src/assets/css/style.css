@@ -3,7 +3,7 @@
  * @version v0.1.0
  * @link Cristian Cortés - cristian.cortes@brm.com.co
  * @license 
- *Wed Feb 07 2018 23:20:29 GMT-0500 (COT)
+ *Thu Feb 08 2018 16:17:54 GMT-0500 (COT)
  */
 /*
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -1531,6 +1531,7 @@ footer a {
 .form-group.form-checkbox {
   background-color: transparent;
   border-color: transparent;
+  margin: 0 auto;
   padding-left: 0;
   padding-right: 0;
   text-align: center;
@@ -1659,7 +1660,11 @@ footer a {
 }
 .text-copy {
   margin: 1rem auto;
-  max-width: 28rem;
+  max-width: 44rem;
+}
+.text-copy span {
+  display: block;
+  font-size: 140%;
 }
 .text-copy-sm {
   font-size: 1.6rem;
