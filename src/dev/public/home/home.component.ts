@@ -121,13 +121,13 @@ export class HomeComponent implements OnInit {
               this.alerta("Gracias por tu mensaje.");
               break;
             case 2:
-              this.alerta("Ocurrió un error al realizar el registro");
+              this.alerta("Ocurrió un error al realizar el registro.");
               break;
             case 3:
-              this.alerta("Ocurrió un error al subir la imagen");
+              this.alerta("Ocurrió un error al subir el archivo.");
               break;
             case 3:
-              this.alerta("datos request incorrectos");
+              this.alerta("datos request incorrectos.");
               break;
           }
         },
