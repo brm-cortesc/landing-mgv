@@ -6,6 +6,8 @@ import { HttpModule } from '@angular/http';
 
 import { PublicRoutingModule } from './public-routing.module';
 import { HomeComponent } from './home/home.component';
+
+import { browserWindowProvider, windowProvider } from "../services/window.service";
 import { RequestService } from '../services/request.services';
 
 @NgModule({
@@ -18,6 +20,6 @@ import { RequestService } from '../services/request.services';
     ReactiveFormsModule
   ],
   declarations: [HomeComponent],
-  providers:[RequestService]
+  providers:[RequestService, browserWindowProvider, windowProvider]
 })
 export class PublicModule { }

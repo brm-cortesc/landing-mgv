@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { RequestService } from '../../services/request.services';
+import { DOCUMENT } from '@angular/platform-browser';
+import {WINDOW } from "../../services/window.service";
+
+
 
 @Component({
   selector: 'app-home',
@@ -14,7 +18,10 @@ export class HomeComponent implements OnInit {
   public departamentos: any;
   public ciudades: any;
   constructor(
+    @Inject(DOCUMENT) private document: Document,
+    @Inject(WINDOW) private window: Window,
     private requestService: RequestService,
+    
     ) { }
 
   ngOnInit() {
@@ -78,6 +85,8 @@ export class HomeComponent implements OnInit {
 
   save(jovenes){
     this.formSubmitAttempt = true;
+    let ancho = this.window.screen.width;
+
     if (jovenes.form.valid) {
       let formData:FormData = new FormData();
       if (this.fileUpload != undefined) {
@@ -125,6 +134,13 @@ export class HomeComponent implements OnInit {
         (error) =>  {
           console.log(error)
         });
+    }else{
+
+      if(ancho < 768 ){
+        this.document.body.scrollTop = 300;
+        this.document.documentElement.scrollTop = 300;
+      }
+    
     }
   }
 
@@ -136,7 +152,8 @@ export class HomeComponent implements OnInit {
   }
 
   focusIn(event){
-    let el = event.srcElement;
+    let el = event.srcElement || event.target;
+    // console.log(event.target)
     let parent = el.parentNode;     
     let valor = el.value
     if (el.tagName == 'SELECT' || el.tagName == 'TEXTAREA'){
@@ -147,14 +164,17 @@ export class HomeComponent implements OnInit {
   }
 
   focusOut(event){
-    let el = event.srcElement;
-    let parent = el.parentNode;     
+    let el = event.srcElement || event.target;
+
+    let parent = el.parentNode;  
     let valor = el.value;
     if (valor != '' ){
       if (el.tagName == 'SELECT' || el.tagName == 'TEXTAREA'){
       parent.parentNode.classList.add('active')
       }else{
           parent.classList.add('active')
+
+
       }
     }else{
       if (el.tagName == 'SELECT' || el.tagName == 'TEXTAREA'){
@@ -163,6 +183,10 @@ export class HomeComponent implements OnInit {
           parent.classList.remove('active')
       }
 
+    }
+
+    if(valor == 0 && valor == '' ){
+       parent.classList.add('active')
     }
   }
 

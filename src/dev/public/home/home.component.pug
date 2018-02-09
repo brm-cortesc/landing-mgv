@@ -65,7 +65,7 @@ section.container-fluid
 					label(for="tel")
 						| Teléfono
 						sup *
-					input(type="number", min="0", id="tel", name="tel", required, [(ngModel)]="jovenesForm.telefono",#telefono="ngModel",pattern="\\d{7,10}", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+					input(type="number", min="0", id="tel", name="tel", required, [(ngModel)]="jovenesForm.telefono",#telefono="ngModel",pattern="\\d{7,10}|/[^0-9]/g", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 					div.msn-place(*ngIf='telefono.errors && (telefono.dirty || telefono.touched || formSubmitAttempt)')
 						div([hidden]="!telefono.hasError('required')") El teléfono es requerido
 						div([hidden]="!telefono.hasError('pattern')") El teléfono no es correcto
