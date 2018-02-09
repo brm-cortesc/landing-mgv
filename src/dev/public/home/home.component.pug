@@ -189,7 +189,7 @@ section.container-fluid
 					label(for="archivo")
 						i.icon.icon-plus
 						|  Adjuntar Archivo
-					input(type="file", id="archivo", name="archivo", pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+", [(ngModel)]="jovenesForm.twitter", #twitter="ngModel")
+					input(type="file", id="archivo", name="archivo", (change)="fileChange($event)", accept=".pdf,.doc,.docx", [(ngModel)]="jovenesForm.archivo", #archivo="ngModel")
 					
 					small Se aceptan archivos pdf y doc, con un peso máximo de 2 mb (opcional)
 
@@ -198,7 +198,7 @@ section.container-fluid
 				button.btn.btn-magenta.btn-submit((click)="save(jovenes)") Enviar
 				///-Submit
 				//- h4.text-center() Gracias por su mensaje.
-				h4.text-center(*ngIf="msg") Gracias por su mensaje.
+				h4.text-center(*ngIf="msgAlerta != ''") {{msgAlerta}}
 
 			//- div.form-half
 			

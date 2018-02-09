@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 
 import { PublicRoutingModule } from './public-routing.module';
 import { HomeComponent } from './home/home.component';
+import { RequestService } from '../services/request.services';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { HomeComponent } from './home/home.component';
     HttpModule,
     ReactiveFormsModule
   ],
-  declarations: [HomeComponent]
+  declarations: [HomeComponent],
+  providers:[RequestService]
 })
 export class PublicModule { }
