@@ -40,7 +40,7 @@ section.container-fluid
 					label(for="nombre")
 						| Nombre
 						sup *
-					input(type="text", id="nombre", name="nombre", required, pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+", [(ngModel)]="jovenesForm.nombre", #nombre="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+					input(type="text", id="nombre", name="nombre", required, pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+( [a-zA-ZñÑáéíóúÁÉÍÓÚ]+)*$", [(ngModel)]="jovenesForm.nombre", #nombre="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 					div.msn-place(*ngIf='nombre.errors && (nombre.dirty || nombre.touched || formSubmitAttempt)')
 						div([hidden]="!nombre.hasError('required')") El nombre es requerido
 						div([hidden]="!nombre.hasError('pattern')") El nombre no es correcto
@@ -53,7 +53,7 @@ section.container-fluid
 					label(for="apellidos")
 						| Apellidos
 						sup *
-					input(type="text", id="apellidos", name="apellidos", required, pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+", [(ngModel)]="jovenesForm.apellido", #apellido="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+					input(type="text", id="apellidos", name="apellidos", required, pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+( [a-zA-ZñÑáéíóúÁÉÍÓÚ]+)*$", [(ngModel)]="jovenesForm.apellido", #apellido="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 					div.msn-place(*ngIf='apellido.errors && (apellido.dirty || apellido.touched || formSubmitAttempt)')
 						div([hidden]="!apellido.hasError('required')") Los apellidos son requeridos
 						div([hidden]="!apellido.hasError('pattern')") Los apellidos son requeridos
