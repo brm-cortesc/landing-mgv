@@ -196,9 +196,9 @@ section.container-fluid
 
 				///-adjuntar
 				//Submit
-				div.event-send
-					div.cargador(*ngIf="cargador") Cargador
-					button.btn.btn-magenta.btn-submit((click)="save(jovenes, confirma)",*ngIf="!cargador") Enviar
+				//- div.event-send
+					//- div.cargador(*ngIf="cargador") Cargador
+				button.btn.btn-magenta.btn-submit((click)="save(jovenes, confirma)", [class.loading]="cargador") Enviar
 
 				///-Submit
 				//- h4.text-center() Gracias por su mensaje.
