@@ -3,7 +3,7 @@
  * @version v0.1.0
  * @link Cristian Cortés - cristian.cortes@brm.com.co
  * @license 
- *Mon Feb 12 2018 11:56:53 GMT-0500 (COT)
+ *Mon Feb 12 2018 15:30:01 GMT-0500 (COT)
  */
 /*
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -1707,15 +1707,22 @@ footer a {
 .form-group.form-checkbox label {
   cursor: pointer;
   max-width: 80%;
-  text-transform: none !important;
+  pointer-events: all;
+  position: relative;
   position: relative;
   text-align: left;
+  text-transform: none !important;
+  top: auto;
   -o-transform: none;
   -ms-transform: none;
   -webkit-transform: none;
   -moz-transform: none;
   transform: none;
-  top: auto;
+  z-index: 1;
+}
+.form-group.form-checkbox label a {
+  position: relative;
+  z-index: 2;
 }
 .form-group.form-checkbox input {
   margin-top: 0.4rem;
@@ -1724,8 +1731,8 @@ footer a {
 .form-group.form-file {
   background-color: transparent;
   border-color: transparent;
-  padding-left: 0;
-  padding-right: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
   text-align: center;
 }
 .form-group.form-file label {

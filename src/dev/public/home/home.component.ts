@@ -169,10 +169,10 @@ export class HomeComponent implements OnInit {
         });
     }else{
 
-      if(ancho < 768 ){
+      // if(ancho < 768 ){
         this.document.body.scrollTop = 300;
         this.document.documentElement.scrollTop = 300;
-      }
+      // }
     
     }
   }
