@@ -186,6 +186,7 @@ section.container-fluid
 			div.form-half.push-half
 				//adjuntar
 				div.form-group.form-file
+					
 					label(for="archivo")
 						i.icon.icon-plus
 						|  Adjuntar Archivo
@@ -195,7 +196,10 @@ section.container-fluid
 
 				///-adjuntar
 				//Submit
-				button.btn.btn-magenta.btn-submit((click)="save(jovenes, confirma)") Enviar
+				div.event-send
+					div.cargador(*ngIf="cargador") Cargador
+					button.btn.btn-magenta.btn-submit((click)="save(jovenes, confirma)",*ngIf="!cargador") Enviar
+
 				///-Submit
 				//- h4.text-center() Gracias por su mensaje.
 				h4.text-center(*ngIf="msgAlerta != ''") {{msgAlerta}}

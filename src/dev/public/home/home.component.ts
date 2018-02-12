@@ -21,13 +21,18 @@ export class HomeComponent implements OnInit {
   public departamentos: any;
   public ciudades: any;
   public closeResult: string;
+  public cargador: boolean = false;
+
   constructor(
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window: Window,
     private requestService: RequestService,
     private modalService: NgbModal
     
-    ) { }
+    ) { 
+      this.document.body.scrollTop = 0;
+      this.document.documentElement.scrollTop = 0;
+    }
 
   ngOnInit() {
     /* Trae de base de datos Servicio noticias */
@@ -114,6 +119,7 @@ export class HomeComponent implements OnInit {
     let ancho = this.window.screen.width;
 
     if (jovenes.form.valid) {
+      this.cargador = true;
       let formData:FormData = new FormData();
       if (this.fileUpload != undefined) {
         formData.append('archivo', this.fileUpload, this.fileUpload.name);
@@ -136,6 +142,7 @@ export class HomeComponent implements OnInit {
       this.requestService.post('app.php', formData, true)
         .subscribe(
         (result) => {
+          this.cargador = false;
           switch (result.error) {
             case 0:
               this.alerta("Ocurrió un error");
@@ -143,6 +150,8 @@ export class HomeComponent implements OnInit {
             case 1:
               this.formSubmitAttempt = false;
               jovenes.reset();
+              this.document.body.scrollTop = 0;
+              this.document.documentElement.scrollTop = 0;
               this.jovenesForm = {};
               // this.alerta("Gracias por tu mensaje.");
               this.open(idModal);
@@ -165,6 +174,7 @@ export class HomeComponent implements OnInit {
           }
         },
         (error) =>  {
+          this.cargador = false;
           console.log(error)
         });
     }else{

@@ -3,6 +3,7 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/timeout';
 
 @Injectable()
 
@@ -24,6 +25,7 @@ export class RequestService {
     }
     
     return this.http.post(url, param, options)
+                  .timeout(10000)
                   .map(this.extractData)
                   .catch(this.handleError);
   }
