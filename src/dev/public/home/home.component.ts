@@ -126,8 +126,14 @@ export class HomeComponent implements OnInit {
             case 3:
               this.alerta("Ocurrió un error al subir el archivo.");
               break;
-            case 3:
-              this.alerta("datos request incorrectos.");
+            case 4:
+              this.alerta("Datos request incorrectos.");
+              break;
+            case 5:
+              this.alerta("El peso del archivo no es correcto");
+              break;
+            case 6:
+              this.alerta("Ocurrió un error al subir el archivo");
               break;
           }
         },

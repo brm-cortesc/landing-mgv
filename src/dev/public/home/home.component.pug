@@ -65,7 +65,7 @@ section.container-fluid
 					label(for="tel")
 						| Teléfono
 						sup *
-					input(type="number", min="0", id="tel", name="tel", required, [(ngModel)]="jovenesForm.telefono",#telefono="ngModel",pattern="\\d{7,10}|/[^0-9]/g", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+					input(type="number", min="0", id="tel", name="tel", required, [(ngModel)]="jovenesForm.telefono",#telefono="ngModel",pattern="\\d{7,10}", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 					div.msn-place(*ngIf='telefono.errors && (telefono.dirty || telefono.touched || formSubmitAttempt)')
 						div([hidden]="!telefono.hasError('required')") El teléfono es requerido
 						div([hidden]="!telefono.hasError('pattern')") El teléfono no es correcto
@@ -121,21 +121,21 @@ section.container-fluid
 				//Facebook
 				div.form-group()
 					label(for="facebook") tu Facebook
-					input(type="text", id="facebook", name="facebook", pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+", [(ngModel)]="jovenesForm.facebook", #facebook="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+					input(type="text", id="facebook", name="facebook", [(ngModel)]="jovenesForm.facebook", #facebook="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 
 				///-Facebook
 
 				//Instagram
 				div.form-group()
 					label(for="instagram") tu Instagram
-					input(type="text", id="instagram", name="instagram", pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+", [(ngModel)]="jovenesForm.instagram", #instagram="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+					input(type="text", id="instagram", name="instagram", [(ngModel)]="jovenesForm.instagram", #instagram="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 
 				///-Instagram
 
 				//Twitter
 				div.form-group()
 					label(for="twitter") tu Twitter
-					input(type="text", id="twitter", name="twitter", pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+", [(ngModel)]="jovenesForm.twitter", #twitter="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+					input(type="text", id="twitter", name="twitter", [(ngModel)]="jovenesForm.twitter", #twitter="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 
 				///-Twitter
 
@@ -174,7 +174,7 @@ section.container-fluid
 			div.form-group
 				label.label-area(for="comentario") ¿Qué propones?
 				div.textarea
-					textarea(id="comentario", name="comentario", pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+", [(ngModel)]="jovenesForm.comentario", #comentario="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+					textarea(id="comentario", name="comentario", [(ngModel)]="jovenesForm.comentario", #comentario="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 					
 						//- option(*ngFor="let citie of cities; let citieKey = index",[value]="citie.idCity") {{citie.name}}
 				div.msn-place(*ngIf='comentario.errors && (comentario.dirty || comentario.touched || formSubmitAttempt)')
