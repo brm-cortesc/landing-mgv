@@ -56,6 +56,7 @@ export class HomeComponent implements OnInit {
     this.modalService.open(content).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
+      location.reload();
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
@@ -204,9 +205,7 @@ export class HomeComponent implements OnInit {
       if (el.tagName == 'SELECT' || el.tagName == 'TEXTAREA'){
       parent.parentNode.classList.add('active')
       }else{
-          parent.classList.add('active')
-
-
+        parent.classList.add('active')
       }
     }else{
       if (el.tagName == 'SELECT' || el.tagName == 'TEXTAREA'){

@@ -65,7 +65,7 @@ section.container-fluid
 					label(for="tel")
 						| Celular
 						sup *
-					input(type="number", min="0", id="tel", name="tel", required, [(ngModel)]="jovenesForm.telefono",#telefono="ngModel",pattern="\\d{7,10}", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+					input(type="number", min="0", id="tel", name="tel", required, [(ngModel)]="jovenesForm.telefono",#telefono="ngModel",pattern="\\d{10,10}", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 					div.msn-place(*ngIf='telefono.errors && (telefono.dirty || telefono.touched || formSubmitAttempt)')
 						div([hidden]="!telefono.hasError('required')") El celular es requerido
 						div([hidden]="!telefono.hasError('pattern')") El celular no es correcto
@@ -146,7 +146,7 @@ section.container-fluid
 						label(for="condicionesH") Con el envío de este formulario acepto las condiciones de inscripción. 
 
 						div.msn-place(*ngIf='condiciones.errors && (condiciones.dirty || condiciones.touched || formSubmitAttempt)')
-							div([hidden]="!politicas.hasError('required')") Este campo es requerido
+							div([hidden]="!condiciones.hasError('required')") Este campo es requerido
 
 
 				///-condiciones
