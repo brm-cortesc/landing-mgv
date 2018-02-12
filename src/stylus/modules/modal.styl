@@ -1,0 +1,105 @@
+.modal
+	padding-right 0 !important
+	
+	.close
+		z-index 100
+		
+	&-content
+		background-color transparent
+		border none
+		border-radius 0
+		box-shadow none
+		position initial
+		
+	&-dialog
+		animation 0.3s ease-out reverse backwards paused
+		background-color #fff
+		border-radius 1rem
+		box-shadow none
+		opacity 0
+		padding 1rem 2rem
+		z-index 1041
+		
+		h3
+			margin-top 5rem
+			text-align center
+			
+
+		img
+			img-responsive(block)
+			margin-top 3rem
+			width 10rem
+			
+		.btn.close
+			circ(3rem)
+			color $magenta
+			font-size 2rem
+			margin 0
+			padding 0.3rem
+			position absolute
+			right 0.5rem
+			top 0.5rem
+			
+			.icon
+				circ(100%)
+				display block
+				
+
+		.text-center
+			margin-bottom 3rem
+	
+	&-backdrop
+		animation 0.3s ease-out reverse backwards paused
+		background-color #d0d0d0
+		display block
+		opacity 0
+		pointer-events none
+		transitionBase()
+		
+		&.fade.show
+			animation-direction normal
+			animation-fill-mode forwards
+			animation-name backfadeIn
+			animation-play-state running
+			
+
+	&-confirma
+	&-usuarioval,
+		h2
+			color $azul
+			font-size 4rem
+			margin 1rem auto !important
+			
+		h3
+			font-size 2rem
+			font-weight $light
+			margin 1rem auto
+			text-transform initial
+			
+		img
+			display block
+			margin 1rem auto
+
+.show
+	opacity 0.99
+	
+	.modal-dialog
+		animation-delay 0.3s
+		animation-direction normal
+		animation-fill-mode forwards
+		animation-name modalIn
+		animation-play-state running
+		
+
+@media (min-width:$screen-sm)
+	.modal
+		&-dialog
+			max-width 80rem
+			
+		&-usuarioval
+			h3
+				font-size 2rem
+				margin 2rem auto
+	
+		
+	

@@ -63,12 +63,12 @@ section.container-fluid
 				//Teléfono		
 				div.form-group
 					label(for="tel")
-						| Teléfono
+						| Celular
 						sup *
 					input(type="number", min="0", id="tel", name="tel", required, [(ngModel)]="jovenesForm.telefono",#telefono="ngModel",pattern="\\d{7,10}", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 					div.msn-place(*ngIf='telefono.errors && (telefono.dirty || telefono.touched || formSubmitAttempt)')
-						div([hidden]="!telefono.hasError('required')") El teléfono es requerido
-						div([hidden]="!telefono.hasError('pattern')") El teléfono no es correcto
+						div([hidden]="!telefono.hasError('required')") El celular es requerido
+						div([hidden]="!telefono.hasError('pattern')") El celular no es correcto
 
 				///-Teléfono
 
@@ -195,7 +195,7 @@ section.container-fluid
 
 				///-adjuntar
 				//Submit
-				button.btn.btn-magenta.btn-submit((click)="save(jovenes)") Enviar
+				button.btn.btn-magenta.btn-submit((click)="save(jovenes, confirma)") Enviar
 				///-Submit
 				//- h4.text-center() Gracias por su mensaje.
 				h4.text-center(*ngIf="msgAlerta != ''") {{msgAlerta}}
@@ -244,4 +244,17 @@ footer.container-fluid
 			strong mejorvargaslleras
 			|.com
 ///-Footer
+
+//Mensaje de validacion
+ng-template(#confirma="", let-c="close", let-d="dismiss" )
+	+modal('confirma')
+		+image('img-modal.svg')
+		h2.text-center ¡Gracias por inscribirte!
+		h3.text-center.
+			A tu correo llegará más información sobre la campaña 
+			<strong>#MejorJóvenes</strong>  <strong>#MejorVargasLleras </strong>
+///-Mensaje de validacion
+
+
+
 

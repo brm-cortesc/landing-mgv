@@ -3,6 +3,9 @@ import { RequestService } from '../../services/request.services';
 import { DOCUMENT } from '@angular/platform-browser';
 import {WINDOW } from "../../services/window.service";
 
+//componentes de bootstrap
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @Component({
@@ -17,10 +20,12 @@ export class HomeComponent implements OnInit {
   public fileUpload: File;
   public departamentos: any;
   public ciudades: any;
+  public closeResult: string;
   constructor(
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window: Window,
     private requestService: RequestService,
+    private modalService: NgbModal
     
     ) { }
 
@@ -45,6 +50,26 @@ export class HomeComponent implements OnInit {
       console.log(error)
     });
   }
+
+  //Funcion de la modal
+  open(content) {
+    this.modalService.open(content).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  
+  private getDismissReason(reason: any): string {
+      if (reason === ModalDismissReasons.ESC) {
+        return 'by pressing ESC';
+      } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+        return 'by clicking on a backdrop';
+      } else {
+        return  `with: ${reason}`;
+      }
+    }
 
   fileChange(event) {
     let fileList: FileList = event.target.files;
@@ -83,7 +108,7 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  save(jovenes){
+  save(jovenes, idModal){
     this.formSubmitAttempt = true;
     let ancho = this.window.screen.width;
 
@@ -118,7 +143,8 @@ export class HomeComponent implements OnInit {
               this.formSubmitAttempt = false;
               jovenes.reset();
               this.jovenesForm = {};
-              this.alerta("Gracias por tu mensaje.");
+              // this.alerta("Gracias por tu mensaje.");
+              this.open(idModal);
               break;
             case 2:
               this.alerta("Ocurrió un error al realizar el registro.");
