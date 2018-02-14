@@ -3,11 +3,7 @@
  * @version v0.1.0
  * @link Cristian Cortés - cristian.cortes@brm.com.co
  * @license 
-<<<<<<< HEAD
- *Mon Feb 12 2018 16:49:33 GMT-0500 (COT)
-=======
- *Mon Feb 12 2018 16:20:09 GMT-0500 (COT)
->>>>>>> c6476b00693f60501875f5a58ea9230273635cf1
+ *Wed Feb 14 2018 10:49:12 GMT-0500 (COT)
  */
 /*
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -1352,13 +1348,13 @@ b {
 }
 header {
   color: #fff;
-  margin-bottom: 6rem;
+  margin-bottom: 9rem;
   position: relative;
   z-index: 2;
 }
 header .diagonal {
   background-color: #59b4d0;
-  height: 29rem;
+  height: 32rem;
   overflow: hidden;
   pointer-events: none;
   position: absolute;
@@ -1393,12 +1389,12 @@ header .diagonal img {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  width: 15rem;
+  width: 20rem;
 }
 header .intro {
   font-weight: 300;
   line-height: 1.2;
-  margin: 3rem auto 1rem;
+  margin: 2rem auto 1rem;
   text-align: center;
 }
 header .intro img {
@@ -1778,6 +1774,10 @@ footer a {
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   z-index: 2;
+}
+.form-group label sup {
+  font-size: 82%;
+  top: -0.2em;
 }
 .form-group input,
 .form-group select,
