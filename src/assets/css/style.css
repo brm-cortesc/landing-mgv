@@ -3,7 +3,7 @@
  * @version v0.1.0
  * @link Cristian Cortés - cristian.cortes@brm.com.co
  * @license 
- *Wed Feb 14 2018 16:00:56 GMT-0500 (COT)
+ *Wed Feb 14 2018 17:20:33 GMT-0500 (COT)
  */
 /*
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -1348,7 +1348,7 @@ b {
 }
 header {
   color: #fff;
-  margin-bottom: 9rem;
+  margin-bottom: 12rem;
   position: relative;
   z-index: 2;
 }
@@ -1422,12 +1422,12 @@ header .intro img {
 }
 @media (min-width: 410px) {
   header {
-    margin-bottom: 9rem;
+    margin-bottom: 16rem;
   }
 }
 @media (min-width: 540px) {
   header {
-    margin-bottom: 14rem;
+    margin-bottom: 16rem;
   }
   header .diagonal {
     height: 40rem;
@@ -2030,12 +2030,13 @@ footer a {
   text-align: center;
 }
 .text-copy {
+  line-height: 1.2;
   margin: 1rem auto;
   max-width: 44rem;
 }
 .text-copy span {
   display: block;
-  font-size: 140%;
+  font-size: 130%;
 }
 .text-copy-sm {
   font-size: 1.6rem;
