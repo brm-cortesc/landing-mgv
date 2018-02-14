@@ -30,7 +30,7 @@ section.container-fluid
 			<span>Inscríbete ya </span>
 			para recibir el <strong>Kit de Bienvenida</strong> y tomar acción.
 		
-		p.text-center: small Los campos con (*) son obligatorios
+		p.text-center: small <strong>Los campos con (*) son obligatorios</strong>
 
 		form#youth.form-home(#jovenes="ngForm", novalidate)
 
@@ -143,7 +143,9 @@ section.container-fluid
 				div.form-group.form-checkbox
 					div.checkbox
 						input(type="checkbox", name="condicionesH", id="condicionesH", required, [(ngModel)]="jovenesForm.condiciones",#condiciones="ngModel")
-						label(for="condicionesH") Con el envío de este formulario acepto las condiciones de inscripción. 
+						label(for="condicionesH")
+							| Con el envío de este formulario acepto las condiciones de inscripción. 
+							sup *
 
 						div.msn-place(*ngIf='condiciones.errors && (condiciones.dirty || condiciones.touched || formSubmitAttempt)')
 							div([hidden]="!condiciones.hasError('required')") Este campo es requerido
@@ -158,6 +160,7 @@ section.container-fluid
 						label(for="politicasH")
 							| He leído y acepto las condiciones  de 
 							a(href="https://www.mejorvargaslleras.com/terminos", target="_blank") tratamiento de datos personales
+							sup *
 
 						div.msn-place(*ngIf='politicas.errors && (politicas.dirty || politicas.touched || formSubmitAttempt)')
 							div([hidden]="!politicas.hasError('required')") Los términos y condiciones son requeridos
@@ -192,7 +195,7 @@ section.container-fluid
 						|  Adjuntar Archivo
 					input(type="file", id="archivo", name="archivo", (change)="fileChange($event)", accept=".pdf,.doc,.docx", [(ngModel)]="jovenesForm.archivo", #archivo="ngModel")
 					
-					small Se aceptan archivos pdf y doc, con un peso máximo de 2 mb (opcional)
+					small Se aceptan archivos pdf y doc, con un peso máximo de 2 mb <strong>(opcional)</strong>
 
 				///-adjuntar
 				//Submit
