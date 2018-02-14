@@ -79,8 +79,10 @@ export class HomeComponent implements OnInit {
 
   fileChange(event) {
     let fileList: FileList = event.target.files;
-      if(fileList.length > 0) {
+    if(fileList.length > 0) {
       this.fileUpload = fileList[0];
+    }else{
+      this.fileUpload = null;
     }
   }
 

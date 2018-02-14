@@ -11,8 +11,8 @@ export class RequestService {
   constructor(private http: Http) {}
 
   public post(url:string, parameters:any, file:boolean = false) {
-    //url = "server/"+ url;
-    url = "http://127.0.0.1/cambio_radical/mejor_jovenes/server/"+ url;
+    url = "server/"+ url;
+    //url = "http://127.0.0.1/cambio_radical/mejor_jovenes/server/"+ url;
     let headers:any;
     let param:any;
     let options:any;
