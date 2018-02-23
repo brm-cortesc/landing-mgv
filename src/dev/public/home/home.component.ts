@@ -1,7 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { RequestService } from '../../services/request.services';
 import { DOCUMENT } from '@angular/platform-browser';
-import {WINDOW } from "../../services/window.service";
+import { WINDOW } from "../../services/window.service";
+import { WindowRef } from '../../services/windowRef.service';
+
 
 //componentes de bootstrap
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
@@ -22,14 +24,15 @@ export class HomeComponent implements OnInit {
   public ciudades: any;
   public closeResult: string;
   public cargador: boolean = false;
-
+  public nativeWindow: any;
   constructor(
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window: Window,
+    private winRef: WindowRef,
     private requestService: RequestService,
     private modalService: NgbModal
-    
     ) { 
+      this.nativeWindow = winRef.getNativeWindow();
       this.document.body.scrollTop = 0;
       this.document.documentElement.scrollTop = 0;
     }
@@ -157,6 +160,9 @@ export class HomeComponent implements OnInit {
               this.jovenesForm = {};
               // this.alerta("Gracias por tu mensaje.");
               this.open(idModal);
+              var fileDownload = "https://www.mejorjovenes.com/server/assets/conviertete-en-un-gerente-joven.pdf";
+              var fileName = "conviertete-en-un-gerente-joven.pdf";
+              this.saveToDisk(fileDownload, fileName);
               break;
             case 2:
               this.alerta("Ocurrió un error al realizar el registro.");
@@ -195,6 +201,27 @@ export class HomeComponent implements OnInit {
       this.msgAlerta = "";
     },5000);
   }
+  
+  saveToDisk(fileDownload, fileName){
+    var a = document.createElement('a');
+    a.href = fileDownload;
+    a.target = '_parent';
+    // Use a.download if available, it prevents plugins from opening.
+    if ('download' in a) {
+      a.download = fileName;
+    }
+    // Add a to the doc for click to work.
+    (document.body || document.documentElement).appendChild(a);
+    if (a.click) {
+      a.click(); // The click method is supported by most browsers.
+    } else {
+      //$(a).click(); // Backup using jquery
+    }
+    // Delete the temporary link.
+    a.parentNode.removeChild(a);
+    return true;
+  }
+
 
   focusIn(event){
     let el = event.srcElement || event.target;
