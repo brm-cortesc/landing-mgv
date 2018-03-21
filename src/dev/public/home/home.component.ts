@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, AfterViewInit, OnInit, Inject } from '@angular/core';
 import { RequestService } from '../../services/request.services';
 import { DOCUMENT } from '@angular/platform-browser';
 import { WINDOW } from "../../services/window.service";
@@ -14,7 +14,7 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
   selector: 'app-home',
   templateUrl: './home.component.html',
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements AfterViewInit, OnInit {
  	
   public msgAlerta: string = "";
  	public jovenesForm: any = {};
@@ -25,6 +25,10 @@ export class HomeComponent implements OnInit {
   public closeResult: string;
   public cargador: boolean = false;
   public nativeWindow: any;
+  public player:any;
+  
+
+
   constructor(
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window: Window,
@@ -37,7 +41,62 @@ export class HomeComponent implements OnInit {
       this.document.documentElement.scrollTop = 0;
     }
 
+   //**insertamos tag de iframe api después de iniciar la vista//
+  ngAfterViewInit(){
+    const doc = (<any>window).document;
+      let playerApiScript = doc.createElement('script');
+      playerApiScript.type = 'text/javascript';
+      playerApiScript.src = 'https://www.youtube.com/iframe_api';
+      doc.body.prepend(playerApiScript);
+
+  }
+
   ngOnInit() {
+   
+    //*creamos el objeto de youtube*//
+    (<any>window).onYouTubeIframeAPIReady = () => {
+      this.player = new (<any>window).YT.Player('vidYT', {
+        height: '100%',
+        width: '100%',
+        videoId: 'ngI2rHhKozk',
+        playerVars: {'autoplay': 1, 'rel': 0, 'controls': 2},
+        events: {
+          'onReady': () => {
+            console.log('listo')
+          },
+          'onStateChange': (event) => {
+               let done = false;
+               let scrollTo = (element, to, duration) => {
+                   if (duration <= 0) return;
+                   var difference = to - element.scrollTop;
+                   var perTick = difference / duration * 10;
+     
+
+                   setTimeout(function() {
+                       element.scrollTop = element.scrollTop + perTick;
+                       if (element.scrollTop === to) return;
+                       scrollTo(element, to, duration - 10);
+                   }, 10);
+               }
+             if(event.data == (<any>window).YT.PlayerState.ENDED && !done ){
+               console.log('video termino')
+               done = true;
+
+
+              let body = this.document.body || this.document.documentElement;
+              let posicion = this.document.getElementById('youth');
+
+              scrollTo( this.document.documentElement, posicion.offsetTop - 150, 600 );
+               
+
+             }
+
+          }
+        }
+      });
+    };
+    
+    
     /* Trae de base de datos Servicio noticias */
     this.requestService.post('app.php',{accion:"getDepartamentos"})
     .subscribe(
@@ -69,6 +128,8 @@ export class HomeComponent implements OnInit {
     });
   }
 
+
+  
   
   private getDismissReason(reason: any): string {
       if (reason === ModalDismissReasons.ESC) {
@@ -259,6 +320,16 @@ export class HomeComponent implements OnInit {
        parent.classList.add('active')
     }
   }
+
+  // savePlayer (player){
+  //   this.player = player;
+  //   console.log( `instancia: ${player}` )
+  // }
+
+  // onStateChange(event){
+  //   console.log( `estado del player: ${event.data}` )
+
+  // }
 
 
 }
