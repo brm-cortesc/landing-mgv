@@ -70,7 +70,9 @@ section.container-fluid
 						div([hidden]="!telefono.hasError('required')") El celular es requerido
 						div([hidden]="!telefono.hasError('pattern')") El celular no es correcto
 
-				///-Teléfono
+				///-Teléfono				
+		
+			div.form-half
 
 				//email
 				div.form-group
@@ -110,67 +112,12 @@ section.container-fluid
 						div([hidden]="!ciudad.hasError('required')") El municipio es requerido
 
 				///-Municipios
-		
-			div.form-half
-				
-				h2.title-social
-					| Queremos Seguirte
-					strong en redes sociales:
-				
-
-				//Facebook
-				div.form-group()
-					label(for="facebook") tu Facebook
-					input(type="text", id="facebook", name="facebook", [(ngModel)]="jovenesForm.facebook", #facebook="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
-
-				///-Facebook
-
-				//Instagram
-				div.form-group()
-					label(for="instagram") tu Instagram
-					input(type="text", id="instagram", name="instagram", [(ngModel)]="jovenesForm.instagram", #instagram="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
-
-				///-Instagram
-
-				//Twitter
-				div.form-group()
-					label(for="twitter") tu Twitter
-					input(type="text", id="twitter", name="twitter", [(ngModel)]="jovenesForm.twitter", #twitter="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
-
-				///-Twitter
-
-				//condiciones
-				div.form-group.form-checkbox
-					div.checkbox
-						input(type="checkbox", name="condicionesH", id="condicionesH", required, [(ngModel)]="jovenesForm.condiciones",#condiciones="ngModel")
-						label(for="condicionesH")
-							| Con el envío de este formulario acepto las condiciones de inscripción. 
-							sup *
-
-						div.msn-place(*ngIf='condiciones.errors && (condiciones.dirty || condiciones.touched || formSubmitAttempt)')
-							div([hidden]="!condiciones.hasError('required')") Este campo es requerido
-
-
-				///-condiciones
-
-				//Acepto terminos
-				div.form-group.form-checkbox
-					div.checkbox
-						input(type="checkbox", name="politicasH", id="politicasH", required, [(ngModel)]="jovenesForm.politicas",#politicas="ngModel")
-						label(for="politicasH")
-							| He leído y acepto las condiciones  de 
-							a(href="https://www.mejorvargaslleras.com/terminos", target="_blank") tratamiento de datos personales
-							sup *
-
-						div.msn-place(*ngIf='politicas.errors && (politicas.dirty || politicas.touched || formSubmitAttempt)')
-							div([hidden]="!politicas.hasError('required')") Los términos y condiciones son requeridos
-
-
-				///-Acepto terminos
+			
+			     
 			
 			div.clearfix
 
-			p.text-center.
+			p.text-center.text-claim.
 				Queremos conocer tus ideas y propuestas para una <strong>#MEJORCOLOMBIA.</strong>
 
 			//Comentario
@@ -186,6 +133,36 @@ section.container-fluid
 			///-Comentario
 			
 			div.clearfix
+			div.form-half
+				//condiciones
+				div.form-group.form-checkbox
+					div.checkbox
+						input(type="checkbox", name="condicionesH", id="condicionesH", required, [(ngModel)]="jovenesForm.condiciones",#condiciones="ngModel")
+						label(for="condicionesH")
+							| Con el envío de este formulario acepto las condiciones de inscripción. 
+							sup *
+
+						div.msn-place(*ngIf='condiciones.errors && (condiciones.dirty || condiciones.touched || formSubmitAttempt)')
+							div([hidden]="!condiciones.hasError('required')") Este campo es requerido
+
+
+				///-condiciones
+
+			div.form-half
+				//Acepto terminos
+				div.form-group.form-checkbox
+					div.checkbox
+						input(type="checkbox", name="politicasH", id="politicasH", required, [(ngModel)]="jovenesForm.politicas",#politicas="ngModel")
+						label(for="politicasH")
+							| He leído y acepto las condiciones  de 
+							a(href="https://www.mejorvargaslleras.com/terminos", target="_blank") tratamiento de datos personales
+							sup *
+
+						div.msn-place(*ngIf='politicas.errors && (politicas.dirty || politicas.touched || formSubmitAttempt)')
+							div([hidden]="!politicas.hasError('required')") Los términos y condiciones son requeridos
+
+
+				///-Acepto terminos
 			div.form-half.push-half
 				//adjuntar
 				div.form-group.form-file
