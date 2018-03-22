@@ -103,15 +103,15 @@ section.container-fluid
 			///-Departamento
 
 			//- //Municipios
-			//- div.form-group
-			//- 	label(for="municipio")
-			//- 		| Municipio
-			//- 		sup *
-			//- 	div.select
-			//- 		select(id="municipio", name="municipio", required, [(ngModel)]="jovenesForm.idCiudad", #ciudad="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
-			//- 			option(*ngFor="let ciudad of ciudades; let citieKey = index",[value]="ciudad.id") {{ciudad.nombre}}
-			//- 	div.msn-place(*ngIf='ciudad.errors && (ciudad.dirty || ciudad.touched || formSubmitAttempt)')
-			//- 		div([hidden]="!ciudad.hasError('required')") El municipio es requerido
+			div.form-group
+				label(for="municipio")
+					| Municipio
+					sup *
+				div.select
+					select(id="municipio", name="municipio", required, [(ngModel)]="jovenesForm.idCiudad", #ciudad="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+						option(*ngFor="let ciudad of ciudades; let citieKey = index",[value]="ciudad.id") {{ciudad.nombre}}
+				div.msn-place(*ngIf='ciudad.errors && (ciudad.dirty || ciudad.touched || formSubmitAttempt)')
+					div([hidden]="!ciudad.hasError('required')") El municipio es requerido
 
 			//- ///-Municipios
 			

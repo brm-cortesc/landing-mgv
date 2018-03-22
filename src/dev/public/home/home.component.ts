@@ -97,7 +97,7 @@ export class HomeComponent implements AfterViewInit, OnInit {
     };
     
     
-    /* Trae de base de datos Servicio noticias */
+    /* Trae de base de datos Servicio departamentos */
     this.requestService.post('app.php',{accion:"getDepartamentos"})
     .subscribe(
     (result) => {

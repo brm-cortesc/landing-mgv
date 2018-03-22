@@ -11,7 +11,8 @@ export class RequestService {
   constructor(private http: Http) {}
 
   public post(url:string, parameters:any, file:boolean = false) {
-    url = "server/"+ url;
+    //url = "server/"+ url;
+    url = "https://www.mejorjovenes.com/server/"+url;
     //url = "http://127.0.0.1/cambio_radical/mejor_jovenes/server/"+ url;
     let headers:any;
     let param:any;
@@ -32,6 +33,7 @@ export class RequestService {
 
   public get(url:string) {
     //url = url.replace("https://enc.brm.co/","http://127.0.0.1/encuestas_brm/web/server/");
+    url = "https://www.mejorjovenes.com/server/"+url;
     let headers:any;
     let options:any;
     

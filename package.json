@@ -7,7 +7,7 @@
     "reports": "gulp report:css && gulp report:js && gulp report:img",
     "watch": "gulp watch",
     "css": "gulp css && gulp minicss",
-    "serve": "ng serve",
+    "serve": "ng serve --port 4201",
     "temps": " gulp show:dev && gulp copy:temp && gulp delete:temp",
     "start": "npm run serve & npm run watch",
     "ng:build": "ng build",
